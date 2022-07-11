@@ -3,23 +3,23 @@
 @using RPS.Core.Models
 @using RPS.Web.Server.Components.Dashboard
 @using RPS.Web.Server.Components.Backlog
+@using Telerik.ReportViewer.Blazor
 @inject NavigationManager NavigationManager
 
 <div class="dashboard">
-
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-
-        <div class="col-md order-md-first text-center text-md-left">
-            <h2>Report</h2>
-        </div>
-
-    </div>
-
+    <ReportViewer ViewerId="rv1" ServiceUrl="/api/reports" 
+        ReportSource="@(new ReportSourceOptions { Report = "RPSDashboardReport.trdp" } )" />
 </div>
-
 
 <link href="css/dashboard.css" rel="stylesheet" />
 
 @code {
 
 }
+
+<style>
+    .trv-report-viewer {
+        width: 100%;
+        height: 880px;
+    }
+</style>
